@@ -207,5 +207,23 @@
         <button class="button-29" role="button" name = "islandNum" value="0">21-260</button>
     </form>
 	<script src="islands.js"></script>
+    <script type="text/javascript">
+      DJANGO_STATIC_URL = '{{ STATIC_URL }}';
+      var url1 = "{% static 'imgs/spritesheet.png' %}";
+      var url2 = "{% static 'imgs/leftspritesheet.png' %}";
+      var url3 = "{% static 'imgs/island.png' %}";
+      var url4 = "{% static 'imgs/aliceblue.png' %}"
+      var users = "{{ users }}"
+    </script>
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <h1>Home Page</h1>
+        <canvas></canvas>
+      </div>
+      <!-- <div class="button-bar"><img src="{% static 'penguin.png' %}" width="10%"></div> -->
+    </main>
+	<script type="module" src="{% static 'testing.js' %}"></script>
   </body>
 </html>
