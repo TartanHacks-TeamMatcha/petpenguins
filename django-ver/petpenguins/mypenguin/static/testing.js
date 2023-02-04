@@ -1,4 +1,4 @@
-document.body.style.color.backgroundColor="#00ffff";
+// document.body.style.color.backgroundColor='#00ffff';
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 const ctx = document.getElementById('canvas1');
@@ -8,6 +8,34 @@ const h = canvas.height = 600;
 
 const spriteWidth = 100;
 const spriteHeight = 101;
+
+let s = users.toString();
+let arr = s.split(';');
+var filtered = arr.filter(s => (('A' <= s.charAt(0) && s.charAt(0) <= 'Z') || ('a' <= s.charAt(0) && s.charAt(0) <= 'z')));
+filtered = filtered.filter(s => (s.charAt(0) != '&'));
+filtered = filtered.map(s => (s.substring(0, s.length - 5)));
+filtered = filtered.filter(s => ('A' <= s.charAt(0) && s.charAt(0) <= 'z'));
+// console.log("filtered: " + filtered);
+// var filtered2 = [];
+// for(var i = 0; i < arr.length; i++) {
+//     if(arr[i].charAt(0) != '&') {
+//         filtered.push(arr[i].substring(0, arr[i].length-5));
+//     }
+// }
+// console.log(filtered);
+
+// console.log("len: " + filtered2)
+// const usrs = users;   // to replace!
+const locs = ['POS A35', 'La Prima', 'GHC 8012', 'Sorrels 4401', 'WEAN 2031'];
+const x = [150, 200, 300, 350, 400, 450];
+const y = [250, 260, 245, 270, 250, 260];
+
+// fetch('test.json')
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.log(error));
+
+// console.log(usrs);
 
 const playerImage = new Image();
 playerImage.src = url1
@@ -29,7 +57,7 @@ function randInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-console.log("rand: " + randInt(7));
+console.log("rand: " + randInt(6));
 
 class Penguin {
     constructor({x, y}, loc, name, i, j) {
@@ -116,7 +144,7 @@ class Title {
     draw() {
         c.font = "50px Comic Sans MS";
         c.textAlign = "center";
-        c.fillStyle = "Blue";
+        c.fillStyle = 'rgb(150,150,255)';
         c.fillText("15-122", this.position.x, this.position.y)
     }
 
@@ -149,13 +177,30 @@ const bg = new Background(background);
 //     console.log(i);
 // }
 
+console.log("filtered: " + filtered)
+// var n = usrs.length;
+var l = filtered.length;
+var penguins = []
+let ind = 0;
+for (var i = 0; i < l; i++) {
+    console.log("aa " + filtered[i]);
+    const ch = filtered[i].charAt(0);
+    if('A' <= ch && ch <= 'z') {
+        console.log("+++");
+        const p = new Penguin({x: x[ind], y: y[ind]}, locs[ind], filtered[ind], 0, randInt(6));
+        penguins.push(p)
+        ind++;
+    }
+}
+console.log("penguins: " + penguins);
+
 function animate() {
-    // c.fillStyle = rgb(240,248,255)
     c.clearRect(0, 0, w, h);
     bg.update();
     ice.update();
-    p1.update();
-    p2.update();
+    for(var i = 0; i < penguins.length; i++) {
+        penguins[i].update();
+    }
     ttl.update()
     console.log(p2.position.x);
     requestAnimationFrame(animate);
