@@ -1,6 +1,95 @@
 .header{
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5%;
+}
+
+h1{
+  color: #ADD8E6;
+}
+
+a{
+  all: none;
+  text-decoration: none;
+}
+
+.button-bar{
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.i-button{
+  display: flex;
+  /* border: 1px solid red; */
+  padding: 15px 35px;
+  margin: 10px;
+  border-radius: 25px;
+  background-color: #ADD8E6;
+  color: white;
+  text-decoration: none;
+}
+
+form{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+td{
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
+input{
+  all: none;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 100px;
+  border: 1px solid #ADD8E6;
+  transition: all 0.4s ease-in-out;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus{
+  border-color: #9ABDDC;
+  /* border: 1px solid red; */
+  outline: none;
+  width: 100%;
+}
+
+input[type=button], input[type=submit], input[type=reset]{
+  all: none;
+  border: none;
+}
+
+label{
+  color: #9ABDDC;
+  display: block;
+  text-align: right;
+  align-self: top;
+  margin: 20px;
+  width: 200px;
+}
+button{
+  background-color: #ffffff00;
+  border: none;
+  margin: 0;
+  all: none;
+  padding: 0;
+  align-self: center;
+}
+
+.helptext{
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  position: absolute;
 }

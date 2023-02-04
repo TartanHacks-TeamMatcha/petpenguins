@@ -14,8 +14,13 @@
   <body>
     <main>
       <div class="header">
-        <h1>Welcome to Pet Penguin!</h1>  
+        <h1>Welcome to Pet Penguin!</h1>
+        <div class="button-bar">
+          <a href="{% url 'login' %}"><div class="i-button">Log In</div></a>  
+          <a href="{% url 'register' %}"><div class="i-button">Register</div></a> 
+        </div>
       </div>
+      <div class="button-bar"><img src="{% static 'penguin.png' %}" width="10%"></div>
     </main>
 	<script src="{% static 'index.js' %}"></script>
   </body>

@@ -1,9 +1,30 @@
-<h3>Register here</h3>
-<hr>
+{% load static %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+<!DOCTYPE html>
 
-    <button type="submit">Register</button>
-</form>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pet Penguin</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+
+<body>
+    <main>
+      <div class="header">
+        <h1>Register here</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+            {{ form.as_table }}
+            </table>
+            <button type="submit"><div class="i-button">Register</div></button>
+        </form>
+      </div>
+    </main>
+	<script src="{% static 'index.js' %}"></script>
+  </body>
+</html>
