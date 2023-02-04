@@ -13,11 +13,26 @@ app.secret_key = 'your secret key'
  
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
-app.config['MYSQL_DB'] = 'geekprofile'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'petpenguins'
  
  
 mysql = MySQL(app)
+
+# cursor = mysql.connection.cursor()
+
+# cursor.execute(''' CREATE TABLE IF NOT EXISTS `accounts` (
+# 	`id` int(11) NOT NULL AUTO_INCREMENT,
+#     `username` varchar(50) NOT NULL,
+#     `password` varchar(255) NOT NULL,
+#     `email` varchar(100) NOT NULL,
+#     `andrewid` varchar(100) NOT NULL,
+#     `onIsland` BOOLEAN NOT NULL,
+#     `lastActive` DATETIME,
+#     PRIMARY KEY (`id`)
+# ) ''')
+# cursor.execute(''' INSERT INTO table_name VALUES(v1,v2...) ''')
+# cursor.execute(''' DELETE FROM table_name WHERE condition ''')
  
  
 @app.route('/')
