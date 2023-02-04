@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Pet Penguin</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+      DJANGO_STATIC_URL = '{{ STATIC_URL }}';
+      var url1 = "{% static 'imgs/spritesheet.png' %}";
+      var url2 = "{% static 'imgs/leftspritesheet.png' %}";
+      var url3 = "{% static 'imgs/island.png' %}";
+      var url4 = "{% static 'imgs/aliceblue.png' %}"
+    </script>
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <h1>About Pet Penguins</h1> <br>
+        <h3>Who are we?</h3>
+        <span>We're Team Matcha 🍵 (Lucy Mo, Esther Cao, Jerick Shi) participating in TartanHack 2023.</span>
+        <br>
+        <h3>What is Pet Penguins?</h3>
+        <span>Pet Penguins 🐧 is an social focus app designed to help students of CMU stay focused while learning.
+        </span>
+        <h3>Wdym social focus app?</h3>
+        <span>Targetting students who love socialising, 
+          Pet Penguins assures that students (and their penguins) stay within the app, with a motivation of keeping their pet penguin happy as well as the added
+          peer pressure. Users must log in with their andrewid to confirm their identity, and when a user leaves the focus app, all other users will be notified. 
+          For example, if a user leaves to check instagram during lecture, their penguin will leave the corresponding study island. With this added motivation, we 
+          hope students will commit to being focused during their study sessions. 🌱
+        </span>
+      </div>
+      <div class="button-bar"><a class="about" href="{% url 'index' %}">home</a></div>
+      <!-- <div class="button-bar"><img src="{% static 'penguin.png' %}" width="10%"></div> -->
+    </main>
+	<script src="{% static 'testing.js' %}"></script>
+  </body>
+</html>

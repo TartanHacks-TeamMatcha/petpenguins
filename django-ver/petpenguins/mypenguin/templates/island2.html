@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Island 2 | Pet Penguin</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+      DJANGO_STATIC_URL = '{{ STATIC_URL }}';
+      var url1 = "{% static 'imgs/spritesheet.png' %}";
+      var url2 = "{% static 'imgs/leftspritesheet.png' %}";
+      var url3 = "{% static 'imgs/island.png' %}";
+      var url4 = "{% static 'imgs/aliceblue.png' %}"
+    </script>
+  </head>
+  <body style="background-color: #f0f8ff;">
+      <div class="wrapper">
+        <h1>Island-15251</h1>
+        <span class="user" style="color: #9ABDDC; padding: 0;">Welcome, {{curr_user}}!</span>
+        <canvas></canvas>
+      </div>
+      <!-- <div class="button-bar"><img src="{% static 'penguin.png' %}" width="10%"></div> -->
+	<script src="{% static 'testing.js' %}"></script>
+  </body>
+</html>

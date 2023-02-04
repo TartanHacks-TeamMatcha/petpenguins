@@ -10,6 +10,7 @@ class User(AbstractBaseUser):
   email = models.EmailField(null=False, unique=True)
   andrewid = models.CharField(max_length=50, null=False, unique=True)
   onIsland = models.BooleanField(default=False)
+  islandNum = models.IntegerField(default=0)
   lastActive = models.DateTimeField(default=None)
   USERNAME_FIELD = 'username'
   REQUIRED_FIELDS = ['userid', 'username', 'email', 'andrewid']

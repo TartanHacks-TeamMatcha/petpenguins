@@ -3,20 +3,29 @@ from . import forms
 from datetime import datetime
 from django.contrib.auth import login, authenticate
 from .models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
   return render(request, 'index.html')
 
+def about(request):
+  return render(request, 'about.html')
+
+@login_required(login_url='/login')
 def home(request):
-  all_active = User.objects.all().values('username')
-  all_active = list(all_active)
-  all_active_list = [user['username'] for user in all_active]
-  print('here', all_active_list)
-  context = {
-    'users': all_active_list,
-  }
-  return render(request, 'home.html', context)
+  current_user = request.user
+  if request.method == 'POST':
+    islandNum = request.POST['islandNum']
+    User.objects.filter(userid=current_user.id).update(islandNum=islandNum)
+    if islandNum == "0":
+      return redirect('island1')
+    elif islandNum == "1":
+      return redirect('island2')
+    else:
+      return redirect('island3')
+  else:
+    return render(request, 'home.html', context={'curr_user': current_user.username})
 
 def register(request):
     if request.method == 'POST':
@@ -49,3 +58,39 @@ def login(request):
 
 def logout(request):
   pass
+
+@login_required(login_url='/login')
+def island1(request):
+  current_user = request.user
+  all_active = User.objects.filter(islandNum = 0).values('username')
+  all_active = list(all_active)
+  all_active_list = [user['username'] for user in all_active]
+  context = {
+    'users': all_active_list,
+    'curr_user': current_user.username,
+  }
+  return render(request, 'island1.html', context)
+
+@login_required(login_url='/login')
+def island2(request):
+  current_user = request.user
+  all_active = User.objects.filter(islandNum = 1).values('username')
+  all_active = list(all_active)
+  all_active_list = [user['username'] for user in all_active]
+  context = {
+    'users': all_active_list,
+    'curr_user': current_user.username,
+  }
+  return render(request, 'island2.html', context)
+
+@login_required(login_url='/login')
+def island3(request):
+  current_user = request.user
+  all_active = User.objects.filter(islandNum = 2).values('username')
+  all_active = list(all_active)
+  all_active_list = [user['username'] for user in all_active]
+  context = {
+    'users': all_active_list,
+    'curr_user': current_user.username,
+  }
+  return render(request, 'island3.html', context)

@@ -117,7 +117,7 @@ class Title {
         c.font = "50px Comic Sans MS";
         c.textAlign = "center";
         c.fillStyle = "Blue";
-        c.fillText("15-122", this.position.x, this.position.y)
+        // c.fillText("15-122", this.position.x, this.position.y)
     }
 
     update(){
