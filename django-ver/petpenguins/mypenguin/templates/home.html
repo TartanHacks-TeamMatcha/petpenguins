@@ -16,6 +16,7 @@
       var url2 = "{% static 'imgs/leftspritesheet.png' %}";
       var url3 = "{% static 'imgs/island.png' %}";
       var url4 = "{% static 'imgs/aliceblue.png' %}"
+      var users = "{{ users }}"
     </script>
   </head>
   <body>
@@ -29,6 +30,6 @@
       </div>
       <!-- <div class="button-bar"><img src="{% static 'penguin.png' %}" width="10%"></div> -->
     </main>
-	<script src="{% static 'testing.js' %}"></script>
+	<script type="module" src="{% static 'testing.js' %}"></script>
   </body>
 </html>
